@@ -1,0 +1,8 @@
+Request ZIP: 54000 - Answer: Error: Zip code "54000" not found.  
+Request ZIP: 53999 - Answer: Error: Zip code "53999" not found.  
+Request ZIP: 54000 - Answer: Error: Zip code "54000" not found.  
+Request ZIP: 54001 - Answer:  Latitude: 45.334312 Longitude: -92.38658
+Request text: i want to buy a ticket - Answer: Buy
+Request text: hi - Answer: Hello
+Request text: how are you? - Answer: Hello
+Request text: i want to buy a phone - Answer: Buy

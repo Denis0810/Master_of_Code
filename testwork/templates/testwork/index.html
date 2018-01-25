@@ -1,0 +1,46 @@
+{% extends 'testwork/base.html' %}
+{% block title %}Master of Code - Test work{% endblock title %}
+{% block scripts %}
+    <script>
+        function changeZIP() {
+            console.log($('#id_zip_code').val());
+            $.ajax({
+                    url: '/ajax/get_coords/',
+                    data: {
+                        'zip_code': $('#id_zip_code').val()
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#id_lat").html(data.lat);
+                        $("#id_lng").html(data.lng);
+                        $("#id_msg").html(data.msg);
+                    }
+                });
+        }
+        function change_content() {
+            $.ajax({
+                    url: '/ajax/get_intent/',
+                    data: {
+                        'content': $('#id_content').val()
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#id_intent").html(data.intent);
+                    }
+                });
+        }
+  </script>
+{% endblock scripts %}
+{% block body %}
+<form action="">
+    {% csrf_token %}
+    <p><label for="id_zip_code">Zip code:</label>
+        <input type="number" name="zip_code" step="1" required id="id_zip_code" onchange="changeZIP()"/></p>
+    <p id="id_lat"></p>
+    <p id="id_lng"></p>
+    <p id="id_msg"></p>
+    <p><label for="id_content">Input text:</label>
+        <input type="text" name="content" required id="id_content" onchange="change_content() "/></p>
+    <p id="id_intent"></p>
+</form>
+{%  endblock body %}
